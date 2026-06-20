@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AdPlexity Ad Research Tracker</title>
+<style>
+body{
+background:#0f172a;
+font-family:Arial,sans-serif;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+padding:20px;
+}
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:16px;
+max-width:450px;
+width:100%;
+text-align:center;
+}
+h1{margin-top:0}
+.stat{
+font-size:42px;
+font-weight:bold;
+margin:15px 0;
+}
+button{
+padding:14px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+width:100%;
+margin-top:10px;
+}
+.primary{
+background:#22c55e;
+}
+.reset{
+background:#334155;
+color:white;
+}
+.cta{
+display:block;
+margin-top:20px;
+background:#facc15;
+padding:14px;
+border-radius:10px;
+font-weight:bold;
+text-decoration:none;
+color:black;
+}
+footer{
+margin-top:20px;
+font-size:12px;
+opacity:.8;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<h1>📊 AdPlexity Ad Research Tracker</h1>
+
+<p>Track competitor campaigns researched this month.</p>
+
+<div class="stat" id="count">0</div>
+
+<button class="primary" onclick="addResearch()">
++ Research Campaign
+</button>
+
+<button class="reset" onclick="resetData()">
+Reset
+</button>
+
+<a class="cta" href="https://tinyurl.com/3ujxz4xr" target="_blank" rel="noopener sponsored">
+🎁 Get Up To 30% OFF AdPlexity
+</a>
+
+<footer>
+Progress saved locally in your browser.<br>
+Affiliate disclosure: This page contains affiliate links and is not affiliated with or endorsed by AdPlexity.
+</footer>
+
+</div>
+
+<script>
+let count = parseInt(localStorage.getItem('adplexity_research') || '0');
+
+function render(){
+document.getElementById('count').innerText = count;
+}
+
+function addResearch(){
+count++;
+localStorage.setItem('adplexity_research',count);
+render();
+}
+
+function resetData(){
+if(confirm('Reset tracker?')){
+count=0;
+localStorage.setItem('adplexity_research',0);
+render();
+}
+}
+
+render();
+</script>
+
+</body>
+</html>
